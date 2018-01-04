@@ -118,7 +118,7 @@
                                     <td>";
                                 if (!empty($data)){
                                 echo "
-                                        <form>
+                                        <form method = 'post'>
                                         <input type='submit' class='remove' name='remove$count' value='remove $count'/>
                                         </form>
                                     ";

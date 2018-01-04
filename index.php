@@ -89,19 +89,25 @@
 	               <span class="input-group-addon">Capacity:</span>
 	               <input type="text" name="capacity" class="form-control" placeholder="25" required>
                 </div><br>
+                </div><br/>
                 <input type="submit" name="makeRoom" value="Create" class="btn btn-success" id="makeRoom"><br>
             </form>
             <div class="img col-xs-6 col-md-3">
                 <a href="https://www.bcit.ca/files/maps/pdf/bcit_wayfinding.pdf" class="thumbnail">
+                <a href="https://www.bcit.ca/files/maps/pdf/bcit_wayfinding.pdf" class="thumbnail" target="_blank">
                     <img src="Images/map.png" alt="map">
                 </a>
             <select id="options">
+            <select id="options" class="form-control">
 				<option selected value="2">Program</option>
 				<option value="0">Building</option>
 				<option value="1">Number</option>
 				<option value="3">Capacity</option>
 			</select>
             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+                <br/>
+            <input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+                <br/>
             </div>
             <div class="table" id="myTable">  
                 <table class ="table table-striped table-hover" border="1">
@@ -146,6 +152,7 @@
                                 echo "
                                         <form method = 'post'>
                                         <input type='submit' class='remove' name='remove$count' value='remove $count'/>
+                                        <input type='submit' class='remove btn btn-danger' name='remove$count' value='Remove' />
                                         </form>
                                     ";
                                 }

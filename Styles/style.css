@@ -14,6 +14,7 @@ body{
     margin: auto;
     margin-top: 150;
     padding: 10;
+	border-radius: 10px;
 }
 
 div {
@@ -23,6 +24,7 @@ div {
 table {
     margin: auto;
     width: 90%;
+	border-radius: 10px;
 }
 
 table th{

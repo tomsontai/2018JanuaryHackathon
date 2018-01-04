@@ -6,8 +6,10 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
         
+
         
-        <script
+        
+        <script>
             src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous">
@@ -24,7 +26,6 @@
                 data =  {'txt1': textboxvalue};
                     $.post(ajaxurl, data, function (response) {
                         // Response div goes here.
-                        alert("action performed successfully");
                     });
                 });
 
@@ -40,7 +41,6 @@
                     data =  {'rem': removeNumber};
                         $.post(ajaxurl, data, function (response) {
                         // Response div goes here.
-                        alert("remove action performed successfully");
                     });
                 });
 
@@ -50,6 +50,14 @@
     <body>
         <header class="navbar navbar-fixed-top">
             <img src="Images/BCIT.png" alt="BCIT"/>
+            <select id="Program">
+				<option selected value="">Filter by Course</option>
+				<option value="CST">CST</option>
+				<option value="CIT">CIT</option>
+				<option value="BUSA">BUSA</option>
+				<option value="MATH">MATH</option>
+				<option value="CPEN">CPEN</option>
+			</select>
         </header>
         <div class="container">
             <h1>Welcome to BCIT StudyBuddy!</h1>

@@ -10,6 +10,7 @@ if(isset($_POST) && isset($_POST['rem'])) {
     $toAdd = '';
     foreach ($dataSet as $data){
         $toAdd .= $data;
+        $toAdd .= ',';
     }
     file_put_contents($dir, $toAdd);
     exit;

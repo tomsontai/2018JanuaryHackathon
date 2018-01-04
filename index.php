@@ -6,7 +6,26 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
         
-
+        <script>
+            function myFunction() {
+              var input, filter, table, tr, td, numberValue, i;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("myTable");
+              numberValue = document.getElementById("options").value;
+              tr = table.getElementsByTagName("tr");
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[numberValue];
+                if (td) {
+                  if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }       
+              }
+            }
+        </script>
         
         
         <script>
@@ -50,14 +69,6 @@
     <body>
         <header class="navbar navbar-fixed-top">
             <img src="Images/BCIT.png" alt="BCIT"/>
-            <select id="Program">
-				<option selected value="">Filter by Course</option>
-				<option value="CST">CST</option>
-				<option value="CIT">CIT</option>
-				<option value="BUSA">BUSA</option>
-				<option value="MATH">MATH</option>
-				<option value="CPEN">CPEN</option>
-			</select>
         </header>
         <div class="container">
             <h1>Welcome to BCIT StudyBuddy!</h1>
@@ -84,8 +95,15 @@
                 <a href="https://www.bcit.ca/files/maps/pdf/bcit_wayfinding.pdf" class="thumbnail">
                     <img src="Images/map.png" alt="map">
                 </a>
+            <select id="options">
+				<option selected value="2">Program</option>
+				<option value="0">Building</option>
+				<option value="1">Number</option>
+				<option value="3">Capacity</option>
+			</select>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
             </div>
-            <div class="table">  
+            <div class="table" id="myTable">  
                 <table class ="table table-striped table-hover" border="1">
                     <tr>
                         <th>

@@ -1,10 +1,11 @@
 header {
-    background-color: #084B8A;
+    background-color: #03457F;
 }
 body{
 	background: url(../images/bg5.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: cover;
 }
 
 .container{

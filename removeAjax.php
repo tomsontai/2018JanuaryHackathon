@@ -4,6 +4,7 @@ if(isset($_POST) && isset($_POST['rem'])) {
     $dir = "rooms.txt";
     
     $contents = file_get_contents($dir);
+    file_put_contents($dir, '');
     
     $dataSet = explode(",", $contents);
     $dataSet[$toRemove] = '';

@@ -19,57 +19,79 @@
                     });
                 });
 
-            });
-        </script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $(".remove").click(function() {
-                    var removeNumber = $(this).val();
-                    removeNumber = removeNumber.match(/\d+$/)[0]
-                    var ajaxurl = 'removeAjax.php',
-                    data =  {'rem': removeNumber};
-                        $.post(ajaxurl, data, function (response) {
-                        // Response div goes here.
-                        alert("remove action performed successfully");
-                    });
-                });
+?>
 
-            });
-        </script>
-</head>
-<body>
-    <table style="border: 1px solid black; padding: 100px">
-        <tbody>
-                <?php
-                  $rooms = file_get_contents("rooms.txt");
-                  $dataSet = explode(",", $rooms);
-                  $count = 0;
-                    foreach($dataSet as $data){
-                        echo "<tr>
-                                <td>" 
-                                   . $data . 
-                                "</td>";
-                                if (!empty($data)){
-                                echo "<td>
-                                        <form>
-                                        <input type='submit' class='remove' name='remove$count' value='remove $count'/>
-                                        </form>
-                                    </td>";
-                                }
-                             echo "</tr>"; 
-                        $count++;
-                  }
-                ?>
-        </tbody>
-    </table>
-    <form>
-        <label for="txt"> Building </label>
-        <input type="text" name="txt"/>
-        <label for="txt"> Room Number </label>
-        <input type="text" name="number"/>
-        <label for="program"> Program </label>
-        <input type="text" name="program"/>
-        <input type="submit" class="button" name="select" value="select" id="select" />
-    </form>
-    </body>
+<!-- index.html, log in page, register.  -->
+
+<html>
+    <head>  
+        <title>BCIT StudyBuddy</title>  
+        <link rel="stylesheet" type="text/css" href="Styles/style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+    </head>  
+    <body>
+        <header class="navbar navbar-fixed-top">
+            <img src="Images/BCIT.png" alt="BCIT"/>
+        </header>
+        <div class="container">
+            <h1>Welcome to BCIT StudyBuddy!</h1>
+            <form action="rooms.txt" method="post">
+                <div class="input-group input-group-sm col-xs-12 col-md-3">
+	               <span class="input-group-addon">Building:</span>
+	               <input type="text" name="name" class="form-control" placeholder="SW-1" >
+                </div>
+                <div class="input-group input-group-sm col-xs-12 col-md-3">
+	               <span class="input-group-addon">Room #:</span>
+	               <input type="text" name="name" class="form-control" placeholder="123" >
+                </div>
+                <div class="input-group input-group-sm col-xs-12 col-md-3">
+	               <span class="input-group-addon">Program:</span>
+	               <input type="text" name="name" class="form-control" placeholder="CST" >
+                </div>
+                <div class="input-group input-group-sm col-xs-12 col-md-3">
+	               <span class="input-group-addon">Capacity:</span>
+	               <input type="text" name="name" class="form-control" placeholder="25" >
+                </div><br>
+                <input type="submit" name="submit" value="Create" class="btn btn-success"><br>
+            </form>
+            <div class="img col-xs-6 col-md-3">
+                <a href="https://www.bcit.ca/files/maps/pdf/bcit_wayfinding.pdf" class="thumbnail">
+                    <img src="Images/map.png" alt="map">
+                </a>
+            </div>
+            <div class="table">  
+                <table class ="table table-striped table-hover" border="1">
+                    <tr>
+                        <th>
+                            Building
+                        </th>
+                        <th>
+                            Room #
+                        </th>
+                        <th>
+                            Program
+                        </th>
+                        <th>
+                            Capacity
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                            <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                </table>
+         </div>
+    </div>
+</body>
 </html>

@@ -7,20 +7,4 @@ if(isset($_POST) && isset($_POST['txt1'])) {
     file_put_contents($dir, $contents);
     exit;
 }
-
-function select() {
-    $dir = "rooms.txt";
-    $contents = file_get_contents($dir);
-    $contents .= "123,";
-    file_put_contents($dir, $contents);
-    exit;
-}
-
-function insert() {
-    $dir = "rooms.txt";
-    $contents = file_get_contents($dir);
-    $contents = str_replace("123,", '', $contents);
-    file_put_contents($dir, $contents);
-    exit;
-}
 ?>

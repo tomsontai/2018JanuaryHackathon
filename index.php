@@ -7,7 +7,7 @@
         </script>
         <script type="text/javascript">
             $(document).ready(function() {
-                $('.button').click(function() {
+                $('#select').click(function() {
                 var textboxvalue = $('input[name=txt]').val();
                 textboxvalue += "-" + $('input[name=number]').val();
                 textboxvalue += "-" + $('input[name=program]').val();
@@ -23,15 +23,14 @@
         </script>
         <script type="text/javascript">
             $(document).ready(function() {
-                $("#remove").click(function() {
-                var textboxvalue = $('input[name=txt]').val();
-                textboxvalue += "-" + $('input[name=number]').val();
-                textboxvalue += "-" + $('input[name=program]').val();
-                var ajaxurl = 'ajax.php',
-                data =  {'txt1': textboxvalue};
-                    $.post(ajaxurl, data, function (response) {
+                $(".remove").click(function() {
+                    var removeNumber = $(this).val();
+                    removeNumber = removeNumber.match(/\d+$/)[0]
+                    var ajaxurl = 'removeAjax.php',
+                    data =  {'rem': removeNumber};
+                        $.post(ajaxurl, data, function (response) {
                         // Response div goes here.
-                        alert("action performed successfully");
+                        alert("remove action performed successfully");
                     });
                 });
 
@@ -44,6 +43,7 @@
                 <?php
                   $rooms = file_get_contents("rooms.txt");
                   $dataSet = explode(",", $rooms);
+                  $count = 0;
                     foreach($dataSet as $data){
                         echo "<tr>
                                 <td>" 
@@ -51,10 +51,13 @@
                                 "</td>";
                                 if (!empty($data)){
                                 echo "<td>
-                                        <input type='submit' class='button' name='remove' value='remove' id='remove'/>
+                                        <form>
+                                        <input type='submit' class='remove' name='remove$count' value='remove $count'/>
+                                        </form>
                                     </td>";
                                 }
-                             echo "</tr>";   
+                             echo "</tr>"; 
+                        $count++;
                   }
                 ?>
         </tbody>
@@ -66,8 +69,7 @@
         <input type="text" name="number"/>
         <label for="program"> Program </label>
         <input type="text" name="program"/>
-        <input type="submit" class="button" name="insert" value="insert" />
-        <input type="submit" class="button" name="select" value="select" />
+        <input type="submit" class="button" name="select" value="select" id="select" />
     </form>
     </body>
 </html>
